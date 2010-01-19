@@ -1,0 +1,7 @@
+#!/bin/sh
+
+find . -type f \( -name "*.php" -or -name "*.js" \) | \
+	 etags \
+	 	   --regex="{php}/[ \t]*public +function +[a-z0-9_]+ *(/i" \
+	 	   --regex="{php}/[ \t]*static +function +[a-z0-9_]+ *(/i" \
+		   -

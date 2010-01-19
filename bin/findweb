@@ -1,0 +1,5 @@
+#!/bin/sh
+
+find . -type f \
+    \( -name "*.php" -or -name "*.phtml" -or -name "*.js" -or -name "*.css" \) \
+    | xargs grep -Eni --color -e "$1"

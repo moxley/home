@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ssh root@139.126.195.56 "f=/adp/home/www_serv/htdocs/iw/test/syncdb.sh; chmod 755 \$f; \$f -b"
+rsync -av "root@139.126.195.56:/adp/home/www_serv/htdocs/iw/install/*.sql" \
+      ~/projects/iw/install/
+rsync -av "root@139.126.195.56:/adp/home/www_serv/htdocs/iw/test/*.sql" \
+      ~/projects/iw/test/

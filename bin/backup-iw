@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#
+# Back up my IW working directory
+#
+
+date=`date +"%Y-%m-%dT%k-%M-%S"`
+
+ssh root@139.126.195.56 "cd ~www_serv/htdocs; tar czO iw" > ~/backup/iw-${date}.tar.gz
+

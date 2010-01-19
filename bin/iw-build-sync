@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Push changes from IW working directory to Build Server
+
+rsync -rlptD --progress ~/projects/iw/ root@139.126.195.59:~www_serv/htdocs/iw/

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rsync -rlptDv --delete ~/projects/iw/ root@139.126.195.56:~www_serv/htdocs/iw/
+
