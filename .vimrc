@@ -182,4 +182,5 @@ if v:version >= 700
   au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 endif
 
+let tlist_php_settings = 'php;c:class;f:function'
 
