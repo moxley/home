@@ -1,3 +1,0 @@
-#!/bin/sh
-
-rsync -av root@139.126.195.56:~www_serv/htdocs/iw/install/ /home/strattom/projects/iw/install/
