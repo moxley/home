@@ -107,32 +107,47 @@ let g:netrw_browse_split = 1
 
 " save changes
 map ,s :w<CR>
+
 " exit vim without saving any changes
 map ,q :q!<CR>
+
 " exit vim saving changes
 map ,w :x<CR>
+
 " switch to upper/lower window quickly
 map <C-J> <C-W>j
 map <C-K> <C-W>k
+
 " Write buffer from insert mode
 imap <C-S> <ESC>:w<CR>
+
 " map CTRL-L to piece-wise copying of the line above the current one
 imap <C-L> @@@<ESC>hhkywjl?@@@<CR>P/@@@<CR>3s
+
 " map ,f to display all lines with keyword under cursor and ask which one to
 " jump to
 nmap ,f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+" use <F2> to toggle mouse
+nmap <silent> <F2> :set mouse=a<CR>
+
 " use <F6> to toggle line numbers
 nmap <silent> <F6> :set number!<CR>
+
 " use <F8> to show tags
 nmap <silent> <F8> :TlistToggle<CR>
+
 " page down with <Space>
 nmap <Space> <PageDown>
+
 " open filename under cursor in a new window (use current file's working
 " directory) 
 nmap gf :new %:p:h/<cfile><CR>
+
 " map <Alt-p> and <Alt-P> to paste below/above and reformat
 nnoremap <Esc>P  P'[v']=
 nnoremap <Esc>p  p'[v']=
+
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv 
