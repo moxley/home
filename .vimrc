@@ -152,6 +152,17 @@ nnoremap <Esc>p  p'[v']=
 vnoremap < <gv
 vnoremap > >gv 
 
+" FindFile mappings
+let g:FindFileIsIndexed = 0
+fun! FindFileWithAutoIndex()
+	if !g:FindFileIsIndexed
+		FC .
+		let g:FindFileIsIndexed = 1
+	endif
+	FindFile
+endfun
+nmap \ff :call FindFileWithAutoIndex()<CR>
+
 " Color scheme
 colorscheme koehler
 
