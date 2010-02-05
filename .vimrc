@@ -129,7 +129,18 @@ imap <C-L> @@@<ESC>hhkywjl?@@@<CR>P/@@@<CR>3s
 nmap ,f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " use <F2> to toggle mouse
-nmap <silent> <F2> :set mouse=a<CR>
+:set mouse=
+let g:MouseActive = 0
+fun! ToggleMouse()
+	if !g:MouseActive
+		:set mouse=a
+		let g:MouseActive = 1
+	else
+		:set mouse=
+		let g:MouseActive = 0
+	endif
+endfun
+nmap <silent> <F2> :call ToggleMouse()<CR>
 
 " use <F6> to toggle line numbers
 nmap <silent> <F6> :set number!<CR>
