@@ -173,3 +173,5 @@ default-directory ".emacs")))
   ;; If there is more than one, they won't work right.
  )
 
+(require 'git)
+(require 'git-blame)
