@@ -21,6 +21,9 @@ set enc=utf-8
 " Remember up to 100 'colon' commmands and search patterns
 set history=100
 
+" Smartcase
+set ignorecase smartcase
+
 " Enable incremental search
 set incsearch
 
