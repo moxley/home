@@ -56,7 +56,7 @@ set shiftwidth=4
 
 " More indentation
 " set noautoindent
-" set expandtab
+set expandtab
 
 " Show (partial) commands (or size of selection in Visual mode) in the status line
 set showcmd
