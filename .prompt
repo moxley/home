@@ -1,25 +1,11 @@
-function user_host {
-  echo -e "\033[1;32m@$(hostname)\033[0m"
-}
+if [ -n "$PS1" ]; then
+  green=$(tput setaf 2)
+  blue=$(tput setaf 4)
+  bold=$(tput bold)
+  reset=$(tput sgr0)
 
-function dirty_file_count {
-  git status --short 2> /dev/null | wc -l | sed -e 's/^ *//'
-}
+  GIT_PS1_SHOWDIRTYSTATE=1
+  source ~/.git-prompt.sh
 
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | grep -e '\*' | sed -e 's/\* *//'
-}
-
-function git_info {
-  if [ -d ./.git ]; then
-    echo -e -n "\033[1;35m$(parse_git_branch) ($(dirty_file_count))\033[0m "
-  else
-    echo -n ''
-  fi
-}
-
-function prompt {
-  echo -e '\033[1;32m$\033[0m'
-}
-
-export PS1=$(echo '$(user_host) \w $(git_info)$(prompt) ')
+  export PS1='\[$green$bold\]\h\[$reset\]:\[$blue$bold\]\w\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\] \$ '
+fi
