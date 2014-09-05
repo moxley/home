@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'socket'
+require 'open3'
+
+server = TCPServer.new 2000 # Server bind to port 2000
+loop do
+  client = server.accept    # Wait for a client to connect
+  cmd = client.gets
+  client.puts "Running command: #{cmd}"
+
+  # TODO Figure out how to stream the process's output unbuffered.
+  #      I had it working before (with IO.popen?), but it doesn't
+  #      do unbuffered anymore.
+
+  Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
+    stdin.close
+    while !stderr.eof? || !stdout.eof?
+      client.print stderr.gets
+      client.print stdout.gets
+    end
+  end
+
+  #IO.popen(cmd) do |stdout|
+  #  while line = stdout.gets
+  #    client.print stdout.gets
+  #  end
+  #end
+end
+
