@@ -1,0 +1,4 @@
+#!/bin/bash
+
+git checkout development
+git branch --merged | grep -v development | xargs git branch -d
