@@ -1,4 +1,12 @@
 #!/bin/sh
 
+. ~/.home_config
+
+echo "MERGE_USER: $MERGE_USER"
+
 branch=`git branch | grep \* | sed 's|\* ||'`
-open https://github.com/moxley/api/compare/househappy:development...moxley:$branch?expand=1
+
+repo_path=`git remote -v | grep -e '^origin.*push' | sed -e 's/origin[[:space:]]git@github.com://' | sed -e 's/\.git.*//'`
+github_user=`echo "$repo_path" | sed -e 's|/.*||'`
+
+open https://github.com/$repo_path/compare/$MERGE_USER:$MERGE_BRANCH...$github_user:$branch?expand=1
