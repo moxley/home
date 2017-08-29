@@ -5,7 +5,7 @@ if [ -n "$PS1" ]; then
   reset=$(tput sgr0)
 
   GIT_PS1_SHOWDIRTYSTATE=1
-  source ~/.git-prompt.sh
+  source ~/moxley_home/bin/git-prompt
 
   export PS1='\[$green$bold\]\h\[$reset\]:\[$blue$bold\]\w\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\] \$ '
 fi
