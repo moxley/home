@@ -1,0 +1,15 @@
+# Aliases
+
+alias gb='git branch'
+alias gs='git status'
+alias gd='git diff'
+alias gp='git push'
+alias gl='git log'
+alias gc='git checkout'
+alias gi='git commit'
+alias ga='git add'
+alias g='git'
+
+alias mt='mix test --seed 0'
+
+alias be='bundle exec'
