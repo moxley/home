@@ -1,0 +1,28 @@
+#!/bin/bash -e
+
+# Scenario:
+# 1. Your feature branch just got merged into the TRUNK branch in the remote repo.
+# 2. You want to checkout TRUNK, pull it from the remote, and delete your feature branch.
+# 3. This command will do that all in one step.
+#
+# Example: Your TRUNK branch is 'master'
+#
+# $ br-clean master
+#
+# This switches to `master`, runs `git pull`, and deletes the branch you were on before.
+
+test -n "$1" || ( echo 'missing main branch name' && false )
+
+branch=$( git branch | grep \* | sed 's|\* ||' )
+
+if [ $branch = $1 ]
+then
+  echo "Cannot delete main branch. Switch to the branch you want to delete." 1>&2
+	exit 2
+fi
+
+git checkout $1
+
+git pull
+
+git branch -d $branch
