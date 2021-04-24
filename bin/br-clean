@@ -26,3 +26,6 @@ git checkout $1
 git pull
 
 git branch -d $branch
+
+git fetch -p
+
