@@ -123,9 +123,8 @@ alias gd='git diff'
 alias gp='git push'
 alias gl='git log'
 alias gc='git checkout'
+alias gi='git commit'
 alias ga='git add'
-alias g='git'
-alias mt='mix test --seed 0'
 
 # Less
 export LESS="-F -X $LESS"
@@ -133,4 +132,8 @@ export LESS="-F -X $LESS"
 # asdf
 . $HOME/.asdf/asdf.sh
 
+# ZSH
 unsetopt share_history
+
+# Homebrew
+export PATH=$PATH:/opt/homebrew/bin
