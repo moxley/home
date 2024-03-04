@@ -63,6 +63,12 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Homebrew autocomplete
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -135,5 +141,13 @@ export LESS="-F -X $LESS"
 # ZSH
 unsetopt share_history
 
+# Direnv
+eval "$(direnv hook zsh)"
+
+# APR
+# https://formulae.brew.sh/formula/apr
+export PATH="/opt/homebrew/opt/apr/bin:$PATH"
+
 # Homebrew
-export PATH=$PATH:/opt/homebrew/bin
+export PATH="/opt/homebrew/bin:$PATH"
+
